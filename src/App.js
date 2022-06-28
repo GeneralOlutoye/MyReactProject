@@ -52,7 +52,23 @@ class App extends Component  {
  }
 
   render() {
+    const myStyle= style{
+      backgroundColor: 'red',
+      color: 'white'
+    }
+    
+    let classes= []
 
+    if(this.state.persons.length <=2){
+      classes.push('red')
+    }
+    if(this.state.persons.length <=1){
+      classes.push('bold')
+    }
+    if(this.state.persons.length <1){
+      classes.push('wahala')
+    }
+    
     let people = null
 
     if (this.state.showPersons) {
@@ -67,11 +83,13 @@ class App extends Component  {
           })}
         </div>
       )
-      
+      myStyle.backgroundColor= 'green'
     }
+  
   return(
     <div className='Apps'>
       <h1>Hi, I am a React Developer</h1>
+     <p style{classes.join(' ')}> And i'm the happiest lonely man i know </p>
       <button onClick = {this.showPersonsHandler} >SWITCH NAME</button>
     </div>
   )
